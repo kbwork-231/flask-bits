@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav style="background-color: green; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <a href="{{ url_for('home') }}" style="color: white; text-decoration: none; font-size: 24px; font-weight: bold;">GLH</a>
+        </div>
+        <div>
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('about') }}" class="nav-link">About</a>
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('orders') }}" class="nav-link">Orders</a>
+            <a href="{{ url_for('producers') }}" class="nav-link">Producers</a>
+            <a href="{{ url_for('products') }}" class="nav-link">Products</a>
+            <button id="font-size-btn" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">🔤</button>
+        </div>
+    </nav>
+    <style>
+        nav a:hover { background-color: yellow; color: black; padding: 5px; }
+    </style>
+    <script>
+        function changeFontSize() {
+            var body = document.body;
+            var currentSize = window.getComputedStyle(body).fontSize;
+            var newSize = parseFloat(currentSize) * 1.2;
+            if (newSize > 24) newSize = 12;
+            body.style.fontSize = newSize + 'px';
+        }
+    </script>
+    <h1>Hello, World!</h1>
+    <p>Welcome to my Flask web application!</p>
+</body>
+</html>
